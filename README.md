@@ -53,6 +53,14 @@ services:
     environment:
       # 不需要可以不用设置环境变量
       - TOKEN=自定义TOKEN
+    logging:
+      # 指定了使用JSON文件作为日志驱动。
+      driver: "json-file"
+      options:
+        # 表示每个日志文件的最大大小为1000m
+        max-size: "1000m"
+        # 表示最多保留3个日志文件。
+        max-file: "3"
 ```
 
 在 `docker-compose.yml` 目录下执行 `docker compose up -d`。
